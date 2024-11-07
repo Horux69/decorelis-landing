@@ -1,0 +1,11 @@
+    /* Estilo personalizado para manejar la posición del dropdown */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%; /* Coloca el dropdown justo debajo del botón */
+        left: 0;
+        z-index: 1000;
+      }
+      .dropdown.open > .dropdown-menu {
+        display: block;
+      }
