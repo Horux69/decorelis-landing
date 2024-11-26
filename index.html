@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
     
@@ -35,6 +36,9 @@
           </li>
           <li>
             <a href="#productos" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Productos</a>
+          </li>
+          <li>
+            <a href="#contacto" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Contactanos</a>
           </li>
           <!-- <li>
             <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Pricing</a>
@@ -90,13 +94,58 @@
   </div>
 </section>
 
+<!-- VIDEO -->
+
+<section class="container mx-auto px-4 py-16 mb-16 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-24 items-center">
+            <!-- Contenido de Descripción -->
+            <div class="space-y-6">
+                <h2 class="text-4xl font-extrabold text-custom-pik-dark mb-4">Nuestra Pasión por las Flores</h2>
+                
+                <p class="font-light text-gray-500 md:text-lg lg:text-lg leading-relaxed">
+                    En Floristería Verde, cada arreglo floral cuenta una historia. Nuestro video muestra el amor, dedicación y arte que ponemos en cada composición. Desde la selección cuidadosa de cada flor hasta la creación de arreglos únicos, te invitamos a descubrir el mundo detrás de nuestras creaciones.
+                </p>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-1 bg-custom-pik"></div>
+                    <span class="text-sm font-medium text-gray-600">Inspiración y Creativity</span>
+                </div>
+            </div>
+            
+            <!-- Contenedor de Video -->
+            <div class="relative group">
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                    <video 
+                        controls 
+                        poster="/path/to/video-thumbnail.jpg" 
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    >
+                        <source src="/path/to/your-video.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
+                </div>
+                
+                <!-- Overlay de Play -->
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-20">
+                    <div class="bg-white p-4 rounded-full shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-custom-pik" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- HISTORIA -->
 
 <section class="mb-16">
   <div class="max-w-[1500px] mx-auto px-10">
       <!-- Encabezado -->
       <div class="text-center mb-12">
-          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Mi Historia</h2>
+          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Nuestra Historia</h2>
           <div class="w-[280px] h-1 bg-custom-pik mx-auto"></div>
       </div>
 
@@ -288,7 +337,7 @@
   <!-- Header con búsqueda y filtros -->
       <div class="mb-8 space-y-6">
         <div class="text-center mb-16">
-          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Nuestros Productos</h2>
+          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Productos Destacados</h2>
           <div class="w-[280px] h-1 bg-custom-pik mx-auto mb-6"></div>
       </div>
       
@@ -565,6 +614,142 @@
 </div>
 </div>
 
+<!-- Sección de Contacto y Ubicación -->
+
+<section class="container mx-auto px-4 py-12" id="contacto">
+    <div class="max-w-6xl mx-auto bg-white rounded-lg border overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Información de Contacto y Ubicación -->
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-custom-pik-dark mb-6">Visítanos</h2>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="text-gray-700 font-medium">Carrera 11 # 8-89 - El Cerrito Valle </span>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span class="text-gray-700">(+57) 323-301-63-86</span>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="text-gray-700">contacto@floreriaverde.com</span>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-custom-pik-dark mb-3">Horarios</h3>
+                    <p class="text-gray-600">
+                        Lunes a Viernes: 9:00 AM - 7:00 PM<br>
+                        Sábados: 10:00 AM - 5:00 PM<br>
+                        Domingos: Cerrado
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Mapa Interactivo -->
+            <div class="relative">
+                <div id="map" class="w-full h-96 md:h-full z-10"></div>
+                
+                <!-- Botón de Cómo Llegar -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination=3.68628157244706,-76.31206053548974" 
+                   target="_blank" 
+                   class="bg-custom-pik-dark text-white font-semibold px-4 py-2 rounded-xl shadow-lg inline-flex items-center gap-2 absolute bottom-4 right-4 z-20">
+                    Cómo llegar <i class="fa-solid fa-route text-[20px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+
+<footer class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <!-- Logo y Nombre -->
+            <div class="flex items-center space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-custom-pik-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="text-2xl font-bold text-gray-800">Decorelis</span>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="flex space-x-6">
+                <!-- Facebook -->
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 group">
+                    <i class="fab fa-brands fa-facebook text-4xl group-hover:scale-110 transform transition-transform"></i>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="#" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 group">
+                    <i class="fab fa-instagram text-4xl group-hover:scale-110 transform transition-transform"></i>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors duration-300 group">
+                    <i class="fab fa-whatsapp text-4xl group-hover:scale-110 transform transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Información de Contacto -->
+            <div class="text-center md:text-right text-gray-600">
+                <p class="mb-2">© 2024 Decorelis</p>
+                <p>Todos los derechos reservados</p>
+            </div>
+        </div>
+
+        <!-- Línea de Separación -->
+        <div class="border-t border-gray-200 mt-8 pt-4 text-center">
+            <nav class="space-x-4">
+                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Política de Privacidad</a>
+                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Términos de Servicio</a>
+                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Contacto</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<!-- Script para personalizar Font Awesome -->
+<script>
+    // Opcional: Personalización adicional de iconos
+    document.addEventListener('DOMContentLoaded', function() {
+        const socialIcons = document.querySelectorAll('.fab');
+        socialIcons.forEach(icon => {
+            icon.style.transition = 'transform 0.3s ease, color 0.3s ease';
+        });
+    });
+</script>
+
+<!-- Script para mapa Leaflet (alternativa gratuita a Google Maps) -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // Inicializar mapa
+    var map = L.map('map').setView([3.68628157244706, -76.31206053548974], 15);
+    
+    // Añadir capa de mapa
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Añadir marcador
+    L.marker([3.68628157244706, -76.31206053548974]).addTo(map)
+        .bindPopup('Decorelis - Floristeria y Decoracion de Eventos')
+        .openPopup();
+</script>
+
 <script>
   // Escuchar el evento click del botón
   document.getElementById("add-to-cart").addEventListener("click", function () {
@@ -572,7 +757,7 @@
       const productPrice = document.getElementById("product-price").innerText;
 
       // Número de WhatsApp y mensaje predefinido
-      const whatsappNumber = "573172509264"; // Reemplazar con tu número
+      const whatsappNumber = "573233016386"; // Reemplazar con tu número
       const message = `Hola, estoy interesado en el producto "${productName}" que tiene un precio de ${productPrice}.`;
 
       // Redirigir al enlace de WhatsApp
