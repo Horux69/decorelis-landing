@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/logo-peque.png" type="image/png">
     <title>Decorelis</title>
     <link href="./css/tailwind.css" rel="stylesheet">
     <link href="./css/nav.css" rel="stylesheet">
@@ -11,117 +13,201 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-</head>
-<body>
-    
 
-<nav class="bg-white border-gray-200 fixed top-0 w-full z-50 shadow-sm">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="./img/LogoMesa_de_trabajo2.png" class="h-[50px]" alt="Flowbite Logo" />
-      </a>
-      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-          </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
-          <li>
-            <a href="#" class="block py-2 px-3 text-white bg-custom-pik-dark rounded md:bg-transparent md:text-custom-pik md:p-0" aria-current="page">Inicio</a>
-          </li>
-          <li>
-            <a href="#politicas_calidad" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Politicas de Calidad</a>
-          </li>
-          <li>
-            <a href="#productos" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Productos</a>
-          </li>
-          <li>
-            <a href="#contacto" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Contactanos</a>
-          </li>
-          <!-- <li>
+    <style>
+        #productModal {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="bg-white border-gray-200 fixed top-0 w-full z-50 shadow-sm">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./img/LogoMesa_de_trabajo2.png" class="h-[50px]" alt="Flowbite Logo" />
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-white bg-custom-pik-dark rounded md:bg-transparent md:text-custom-pik md:p-0"
+                            aria-current="page">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#politicas_calidad"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Politicas
+                            de Calidad</a>
+                    </li>
+                    <li>
+                        <a href="#productos"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Productos</a>
+                    </li>
+                    <li>
+                        <a href="#contacto"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Contactanos</a>
+                    </li>
+                    <!-- <li>
             <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Pricing</a>
           </li>
           <li>
             <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-custom-pik md:p-0">Contact</a>
           </li> -->
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-<!-- HERO -->
-
-<section class="bg-white pt-8">
-    <div class="grid max-w-screen-xl px-10 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12 lg:pt-8">
-        <div class="mr-auto place-self-center lg:col-span-7">
-            <h1 class="max-w-2xl mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
-                Decorelis: Arte floral <br> y momentos inolvidables.
-            </h1>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
-                Somos una floristería familiar ubicada en El Cerrito, Valle del Cauca, dedicada a embellecer cada momento especial. 
-                Ofrecemos arreglos florales personalizados, bouquets, rosas preservadas y servicios de decoración para eventos. 
-                En Decorelis, transformamos sentimientos en experiencias inolvidables con creatividad, excelencia y compromiso.
-            </p>
-            <div class="flex justify-center gap-4 md:inline-block sm:flex sm:space-y-0 sm:space-x-4">
-                <a href="#productos" class="px-6 py-3 text-sm font-medium text-white bg-custom-pik-dark rounded-lg hover:bg-custom-pik">
-                    Ver Catálogo
-                </a>
-                <a href="#contacto" class="px-6 py-3 text-sm font-medium text-custom-pik-dark bg-gray-100 rounded-lg hover:bg-gray-200">
-                    Contáctanos
-                </a>
+                </ul>
             </div>
         </div>
-        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex md:w-[450px] lg:w-[550px]">
-            <img src="./img/vec.png" alt="Imagen de hero de Decorelis">
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="bg-white pt-8">
+        <div class="grid max-w-screen-xl px-10 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12 lg:pt-8">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1
+                    class="max-w-2xl mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                    <span class="text-custom-pik">Decorelis:</span> Arte floral <br> y momentos inolvidables.
+                </h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
+                    Somos una floristería familiar ubicada en El Cerrito, Valle del Cauca, dedicada a embellecer cada
+                    momento especial.
+                    Ofrecemos arreglos florales personalizados, bouquets, rosas preservadas y servicios de decoración
+                    para eventos.
+                    En Decorelis, transformamos sentimientos en experiencias inolvidables con creatividad, excelencia y
+                    compromiso.
+                </p>
+                <div class="flex justify-center gap-4 md:inline-block sm:flex sm:space-y-0 sm:space-x-4">
+                    <a href="#productos"
+                        class="px-6 py-3 text-sm font-medium text-white bg-custom-pik-dark rounded-lg hover:bg-custom-pik">
+                        Ver Catálogo
+                    </a>
+                    <a href="#contacto"
+                        class="px-6 py-3 text-sm font-medium text-custom-pik-dark bg-gray-100 rounded-lg hover:bg-gray-200">
+                        Contáctanos
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex md:w-[450px] lg:w-[550px]">
+                <img src="./img/vec.png" alt="Imagen de hero de Decorelis">
+            </div>
+        </div>
+    </section>
+    
+
+    <div class="flex flex-col md:flex-row py-8 px-10 gap-10 md:px-16 space-y-4">
+        <!-- Sección: ¿Quiénes Somos? -->
+        <div class="flex-grow py-8 px-2 md:py-6 md:px-14 bg-gray-100/70 rounded-2xl">
+            <div class="flex justify-center mb-2">
+                <i class="fas fa-users text-custom-pik text-3xl mr-2"></i>
+            </div>
+            <h1
+                class="text-custom-pik-dark mb-2 text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
+                ¿Quiénes Somos?
+            </h1>
+            <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
+                Decorelis es una floristería familiar ubicada en el corazón de El Cerrito, Valle del Cauca, que se
+                distingue por su compromiso social y su pasión por el arte floral. Fundada con la visión de llevar la
+                belleza de las flores a cada rincón y ocasión especial, Decorelis se enfoca en ofrecer productos y
+                servicios de calidad que no solo cumplen con las expectativas, sino que superan los sueños de quienes
+                nos eligen.
+            </p>
+        </div>
+
+        <!-- Sección: ¿A Qué Nos Dedicamos? -->
+        <div class="flex-grow py-8 px-2 md:py-4 md:px-14 bg-gray-100/70 rounded-2xl">
+            <div class="flex justify-center mb-2">
+                <i class="fas fa-hand-holding-heart text-custom-pik text-3xl mr-2"></i>
+            </div>
+            <h1
+                class="text-custom-pik-dark mb-2 text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
+                ¿A Qué Nos Dedicamos?
+            </h1>
+            <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
+                Nos especializamos en la creación de arreglos florales de gran belleza, adaptados a cualquier evento o
+                necesidad. Nuestro equipo trabaja para embellecer y dar vida a cada momento especial. Decorelis ayuda a
+                nuestros clientes a expresar sentimientos, celebrar el amor y acompañar en los momentos más importantes.
+            </p>
+        </div>
+
+        <!-- Sección: ¿Qué Ofrecemos? -->
+        <div class="flex-grow py-8 px-2 md:py-4 md:px-14 bg-gray-100/70 rounded-2xl">
+            <div class="flex justify-center mb-2">
+                <i class="fas fa-gift text-custom-pik text-3xl mr-2"></i>
+            </div>
+            <h1
+                class="text-custom-pik-dark mb-2 text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
+                ¿Qué Ofrecemos?
+            </h1>
+            <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
+                Contamos con un catálogo amplio: arreglos personalizados, bouquets, arreglos fúnebres, y rosas
+                preservadas. Además, ofrecemos servicios de decoración para bodas y celebraciones, transformando
+                espacios en ambientes únicos y llenos de vida.
+            </p>
         </div>
     </div>
-</section>
 
-<div class="flex flex-col md:flex-row py-8 px-10 mb-16 gap-10 md:px-16 space-y-4">
-    <!-- Sección: ¿Quiénes Somos? -->
-    <div class="flex-grow py-8 px-2 md:py-6 md:px-14 bg-gray-100/70 rounded-2xl">
-        <div class="flex justify-center mb-2">
-            <i class="fas fa-users text-custom-pik text-3xl mr-2"></i>
+    <section class="container mx-auto px-4 md:py-16">
+        <div class="grid md:grid-cols-2 gap-8 items-center px-10 pt-10 pb-8 mx-auto lg:gap-14 lg:py-8 lg:pt-8">
+            <!-- Texto y Llamada a la Acción -->
+            <div class="text-center md:text-left">
+                <h2 id="section-title" class="max-w-2xl mb-4 text-2xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                    Servicios de Decoración
+                </h2>
+                
+                <p id="section-description" class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
+                    Creamos experiencias únicas para tus eventos más especiales. 
+                    Bodas, celebraciones y momentos que recordarás toda la vida.
+                </p>
+
+                <a 
+                    href="https://wa.me/+573233016386?text=Hola,%20me%20gustaría%20cotizar%20una%20decoración%20para%20mi%20evento."
+                    target="_blank"
+                    class=" bg-custom-pik text-white hover:bg-pink-600 py-3 px-8 rounded-full text-lg font-medium transition-colors duration-300 inline-flex items-center space-x-2 mx-auto md:mx-0"
+                >
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <span>Solicitar Cotización</span>
+                </a>
+            </div>
+
+            <!-- Carrusel más pequeño -->
+            <div id="decoration-carousel" class="relative w-full h-[400px] overflow-hidden rounded-lg shadow-lg">
+                <!-- Carousel Images -->
+                <div id="carousel-images" class="absolute inset-0 transition-all duration-700 ease-in-out">
+                    <!-- Las imágenes se insertarán dinámicamente con JavaScript -->
+                </div>
+
+                <!-- Indicadores de Slide -->
+                <div id="slide-indicators" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <!-- Los indicadores se insertarán dinámicamente con JavaScript -->
+                </div>
+            </div>
         </div>
-        <h1 class="text-custom-pik-dark mb-2 text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
-            ¿Quiénes Somos?
-        </h1>
-        <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
-            Decorelis es una floristería familiar ubicada en el corazón de El Cerrito, Valle del Cauca, que se distingue por su compromiso social y su pasión por el arte floral. Fundada con la visión de llevar la belleza de las flores a cada rincón y ocasión especial, Decorelis se enfoca en ofrecer productos y servicios de calidad que no solo cumplen con las expectativas, sino que superan los sueños de quienes nos eligen.
-        </p>
-    </div>
-
-    <!-- Sección: ¿A Qué Nos Dedicamos? -->
-    <div class="flex-grow py-8 px-2 md:py-4 md:px-14 bg-gray-100/70 rounded-2xl">
-        <div class="flex justify-center mb-2">
-            <i class="fas fa-hand-holding-heart text-custom-pik text-3xl mr-2"></i>
-        </div>
-        <h1 class="text-custom-pik-dark mb-2 text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
-            ¿A Qué Nos Dedicamos?
-        </h1>
-        <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
-            Nos especializamos en la creación de arreglos florales de gran belleza, adaptados a cualquier evento o necesidad. Nuestro equipo trabaja para embellecer y dar vida a cada momento especial. Decorelis ayuda a nuestros clientes a expresar sentimientos, celebrar el amor y acompañar en los momentos más importantes.
-        </p>
-    </div>
-
-    <!-- Sección: ¿Qué Ofrecemos? -->
-    <div class="flex-grow py-8 px-2 md:py-4 md:px-14 bg-gray-100/70 rounded-2xl">
-        <div class="flex justify-center mb-2">
-            <i class="fas fa-gift text-custom-pik text-3xl mr-2"></i>
-        </div>
-        <h1 class="text-custom-pik-dark mb-2 text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
-            ¿Qué Ofrecemos?
-        </h1>
-        <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
-            Contamos con un catálogo amplio: arreglos personalizados, bouquets, arreglos fúnebres, y rosas preservadas. Además, ofrecemos servicios de decoración para bodas y celebraciones, transformando espacios en ambientes únicos y llenos de vida.
-        </p>
-    </div>
-</div>
+    </section>
 
 
-  <!-- <div class=" grid grid-cols-1 md:grid-cols-3 py-8 px-10 mb-16 gap-10 md:px-16">
+    <!-- <div class=" grid grid-cols-1 md:grid-cols-3 py-8 px-10 mb-16 gap-10 md:px-16">
     <div class="py-8 px-2 md:py-6 md:px-14 bg-gray-100/70 rounded-2xl">
       <h1 class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">¿Quienes Somos?</h1>
       <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">Decorelis es una floristería familiar ubicada en el corazón de El Cerrito, Valle del Cauca, que se distingue por su compromiso social y su pasión por el arte floral. Fundada con la visión de llevar la belleza de las flores a cada rincón y ocasión especial, Decorelis se enfoca en ofrecer productos y servicios de calidad que no solo cumplen con las expectativas, sino que superan los sueños de quienes nos eligen. Somos una empresa que trabaja con dedicación y amor, valorando cada detalle y cuidando cada arreglo para que nuestros clientes reciban una experiencia memorable.</p>
@@ -141,87 +227,633 @@
         En Decorelis, también ofrecemos servicios especializados para la organización y decoración de eventos, como bodas, aniversarios, y otras celebraciones. Trabajamos de la mano con nuestros clientes para transformar espacios y crear ambientes únicos y llenos de vida.</p>
     </div>
   </div> -->
-</section>
 
-<!-- VIDEO -->
+    <!-- Sección de Productos -->
 
-<section class="container mx-auto py-8 px-10 mb-16 gap-10 md:px-16 bg-white">
-    <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-24 items-center">
-            <!-- Contenido de Descripción -->
-            <div class="space-y-6">
-                <h2 class="text-4xl font-extrabold text-custom-pik-dark mb-4">Nuestra Pasión por las Flores</h2>
-                
-                <p class="font-light text-gray-500 md:text-lg lg:text-lg leading-relaxed">
-                    En Floristería Verde, cada arreglo floral cuenta una historia. Nuestro video muestra el amor, dedicación y arte que ponemos en cada composición. Desde la selección cuidadosa de cada flor hasta la creación de arreglos únicos, te invitamos a descubrir el mundo detrás de nuestras creaciones.
-                </p>
-                
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-1 bg-custom-pik"></div>
-                    <span class="text-sm font-medium text-gray-600">Inspiración y Creativity</span>
+    <div class="max-w-7xl mx-auto p-6" id="productos">
+        <!-- Header con búsqueda y filtros -->
+        <div class="mb-8 space-y-6">
+            <div class="text-center mb-16">
+                <h2
+                    class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                    Nuestros Productos</h2>
+                <div class="w-[280px] h-1 bg-custom-pik mx-auto mb-6"></div>
+            </div>
+
+            <!-- Filtros por categoría -->
+            <div class="flex flex-wrap gap-2">
+                <button class="px-4 py-2 rounded-full text-sm font-medium bg-custom-pik text-white transition-colors">
+                    Destacados
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid de productos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Producto 1 -->
+            <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
+                <!-- Imagen y etiquetas -->
+                <div class="relative">
+                    <img src="./img/rosa_c.webp" alt="Producto Premium 1"
+                        class="w-full h-48 object-cover product-image">
+                    <div class="absolute top-2 left-2 flex gap-2">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Nuevo
+                        </span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Destacado
+                        </span>
+                    </div>
+                    <button
+                        class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+                        <i class="far fa-heart text-gray-600"></i>
+                    </button>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800" id="product-name">Rosa en Cupula de Cristal</h3>
+                    <!-- Valoraciones -->
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="far fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(128 reviews)</span>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <!-- Precios -->
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$100.000</span>
+                            <span class="text-sm text-gray-400 line-through">$130.000</span>
+                        </div>
+
+                        <!-- Descripción -->
+                        <p class="text-gray-600 text-sm">
+                            Una descripción detallada del producto que explica sus beneficios y usos principales.
+                        </p>
+
+                        <!-- Características -->
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica Premium 1
+                            </li>
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica 2
+                            </li>
+                        </ul>
+
+                        <!-- Colores -->
+                        <div class="space-y-2">
+                            <p class="text-sm font-medium text-gray-700">Colores en rosas disponibles:</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Rojas</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Blancas</span>
+                            </div>
+                        </div>
+
+                        <!-- Stock -->
+                        <!-- <div class="flex items-center gap-2">
+                        <span class="text-sm font-medium text-green-600">
+                            En stock
+                        </span>
+                    </div> -->
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="flex gap-2 pt-4 mt-4">
+                        <button id="add-to-cart"
+                            class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-custom-pik transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            ¡Quiero Este Producto!
+                        </button>
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Contenedor de Video -->
-            <div class="relative group">
-                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                    <video 
-                        controls 
-                        poster="/path/to/video-thumbnail.jpg" 
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    >
-                        <source src="/path/to/your-video.mp4" type="video/mp4">
-                        Tu navegador no soporta el elemento de video.
-                    </video>
+
+            <!-- Producto 2 -->
+            <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
+                <div class="relative">
+                    <img src="./img/p3.jpeg" alt="Producto Exclusivo 2" class="w-full h-48 object-cover product-image">
+                    <div class="absolute top-2 left-2 flex gap-2">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Nuevo
+                        </span>
+                    </div>
+                    <button
+                        class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+                        <i class="far fa-heart text-gray-600"></i>
+                    </button>
                 </div>
-                
-                <!-- Overlay de Play -->
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-20">
-                    <div class="bg-white p-4 rounded-full shadow-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-custom-pik" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z"/>
-                        </svg>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800" id="product-name">Ramo de rosas</h3>
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="far fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(89 reviews)</span>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$80.000</span>
+                            <span class="text-sm text-gray-400 line-through">$249.99</span>
+                        </div>
+
+                        <p class="text-gray-600 text-sm">
+                            Producto de alta calidad con acabados premium y garantía extendida.
+                        </p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica Exclusiva 1
+                            </li>
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica 2
+                            </li>
+                        </ul>
+
+                        <div class="space-y-2">
+                            <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Blanco</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Negro</span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="flex items-center gap-2">
+                        <span class="text-sm font-medium text-orange-600">
+                            ¡Solo 8 unidades disponibles!
+                        </span>
+                    </div> -->
+                    </div>
+
+                    <div class="flex gap-2 pt-4 mt-4 items-end">
+                        <button id="add-to-cart"
+                            class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-custom-pik transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            ¡Quiero Este Producto!
+                        </button>
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
+                <div class="relative">
+                    <img src="./img/rojas.jpg" alt="Producto Elite 3" class="w-full h-48 object-cover product-image">
+                    <div class="absolute top-2 left-2 flex gap-2">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Nuevo
+                        </span>
+                    </div>
+                    <button
+                        class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+                        <i class="far fa-heart text-gray-600"></i>
+                    </button>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800" id="product-name">Ramo de Rosas</h3>
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="far fa-star text-gray-300"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(256 reviews)</span>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$100.000</span>
+                            <span class="text-sm text-gray-400 line-through">$125.000</span>
+                        </div>
+
+                        <p class="text-gray-600 text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, enim, eum iure amet ipsa
+                            libero ut temporibus.
+                        </p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Flores Rojas
+                            </li>
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Papel Kraft
+                            </li>
+                        </ul>
+
+                        <div class="space-y-2">
+                            <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Azules</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Verdes</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Rojas</span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="flex items-center gap-2">
+                      <span class="text-sm font-medium text-orange-600">
+                          ¡Solo 5 unidades disponibles!
+                      </span>
+                  </div> -->
+                    </div>
+
+                    <div class="flex gap-2 pt-4 mt-4">
+                        <button id="add-to-cart"
+                            class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-custom-pik transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            ¡Quiero Este Producto!
+                        </button>
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
+                <!-- Imagen y etiquetas -->
+                <div class="relative">
+                    <img src="./img/rosa_c.webp" alt="Producto Premium 1"
+                        class="w-full h-48 object-cover product-image">
+                    <div class="absolute top-2 left-2 flex gap-2">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Nuevo
+                        </span>
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Destacado
+                        </span>
+                    </div>
+                    <button
+                        class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+                        <i class="far fa-heart text-gray-600"></i>
+                    </button>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800" id="product-name">Rosa en Cupula de Cristal</h3>
+                    <!-- Valoraciones -->
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="far fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(128 reviews)</span>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <!-- Precios -->
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$100.000</span>
+                            <span class="text-sm text-gray-400 line-through">$130.000</span>
+                        </div>
+
+                        <!-- Descripción -->
+                        <p class="text-gray-600 text-sm">
+                            Una descripción detallada del producto que explica sus beneficios y usos principales.
+                        </p>
+
+                        <!-- Características -->
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica Premium 1
+                            </li>
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica 2
+                            </li>
+                        </ul>
+
+                        <!-- Colores -->
+                        <div class="space-y-2">
+                            <p class="text-sm font-medium text-gray-700">Colores en rosas disponibles:</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Rojas</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Blancas</span>
+                            </div>
+                        </div>
+
+                        <!-- Stock -->
+                        <!-- <div class="flex items-center gap-2">
+                        <span class="text-sm font-medium text-green-600">
+                            En stock
+                        </span>
+                    </div> -->
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="flex gap-2 pt-4 mt-4">
+                        <button id="add-to-cart"
+                            class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-custom-pik transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            ¡Quiero Este Producto!
+                        </button>
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
+                <div class="relative">
+                    <img src="./img/p3.jpeg" alt="Producto Exclusivo 2" class="w-full h-48 object-cover product-image">
+                    <div class="absolute top-2 left-2 flex gap-2">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Nuevo
+                        </span>
+                    </div>
+                    <button
+                        class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+                        <i class="far fa-heart text-gray-600"></i>
+                    </button>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800" id="product-name">Ramo de rosas</h3>
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="far fa-star text-yellow-400"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(89 reviews)</span>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$80.000</span>
+                            <span class="text-sm text-gray-400 line-through">$249.99</span>
+                        </div>
+
+                        <p class="text-gray-600 text-sm">
+                            Producto de alta calidad con acabados premium y garantía extendida.
+                        </p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica Exclusiva 1
+                            </li>
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Característica 2
+                            </li>
+                        </ul>
+
+                        <div class="space-y-2">
+                            <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Blanco</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Negro</span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="flex items-center gap-2">
+                        <span class="text-sm font-medium text-orange-600">
+                            ¡Solo 8 unidades disponibles!
+                        </span>
+                    </div> -->
+                    </div>
+
+                    <div class="flex gap-2 pt-4 mt-4 items-end">
+                        <button id="add-to-cart"
+                            class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-custom-pik transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            ¡Quiero Este Producto!
+                        </button>
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
+                <div class="relative">
+                    <img src="./img/rojas.jpg" alt="Producto Elite 3" class="w-full h-48 object-cover product-image">
+                    <div class="absolute top-2 left-2 flex gap-2">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
+                            Nuevo
+                        </span>
+                    </div>
+                    <button
+                        class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+                        <i class="far fa-heart text-gray-600"></i>
+                    </button>
+                </div>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800" id="product-name">Ramo de Rosas</h3>
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="far fa-star text-gray-300"></i>
+                        </div>
+                        <span class="text-sm text-gray-600">(256 reviews)</span>
+                    </div>
+
+                    <div class="space-y-4 mt-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$100.000</span>
+                            <span class="text-sm text-gray-400 line-through">$125.000</span>
+                        </div>
+
+                        <p class="text-gray-600 text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, enim, eum iure amet ipsa
+                            libero ut temporibus.
+                        </p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Flores Rojas
+                            </li>
+                            <li class="flex items-center text-sm text-gray-700">
+                                <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
+                                Papel Kraft
+                            </li>
+                        </ul>
+
+                        <div class="space-y-2">
+                            <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Azules</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Verdes</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Rojas</span>
+                            </div>
+                        </div>
+
+                        <!-- <div class="flex items-center gap-2">
+                      <span class="text-sm font-medium text-orange-600">
+                          ¡Solo 5 unidades disponibles!
+                      </span>
+                  </div> -->
+                    </div>
+
+                    <div class="flex gap-2 pt-4 mt-4">
+                        <button id="add-to-cart"
+                            class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-custom-pik transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            ¡Quiero Este Producto!
+                        </button>
+                        <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal para Abrir Imagenes de Productos -->
+    <div id="productModal" class="fixed inset-0 flex items-center justify-center bg-black/50 hidden z-50">
+        <div class="bg-white mx-10 rounded-lg overflow-hidden max-w-md w-full">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                &times;
+            </button>
+            <img id="modalImage" src="" alt="Producto" class="w-full">
+        </div>
+    </div>
+
+
+    <!-- Sección de Descargar PDF -->
+
+    <div class="max-w-6xl mx-auto pt-6 px-6 my-10 md:mt-10 md:mb-16">
+        <div
+            class="grid grid-cols-1 items-center md:grid-cols-2 max-w-6xl mx-auto py-8 px-2 md:py-4 md:px-14 bg-white rounded-lg border gap-8">
+            <div>
+                <h1
+                    class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
+                    ¡Explora Todos Nuestros Productos!</h1>
+            </div>
+
+            <div class="m-auto">
+                <a href="pdf/HistoriaCatálogoProductosAmoryAmistadRojoyRosa.pdf" download="catalogo.pdf"
+                    class="bg-custom-pik hover:bg-custom-pik-dark text-white font-semibold px-6 py-3 rounded-xl shadow-lg inline-flex items-center gap-2">
+                    Descargar Catálogo <i class="fa-solid fa-file-pdf text-[20px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO -->
+
+    <section class="container mx-auto py-8 px-10 mb-16 gap-10 md:px-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 md:gap-24 items-center">
+                <!-- Contenido de Descripción -->
+                <div class="space-y-6">
+                    <h2 class="text-4xl font-extrabold text-custom-pik-dark mb-4">Nuestra Pasión por las Flores</h2>
+
+                    <p class="font-light text-gray-500 md:text-lg lg:text-lg leading-relaxed">
+                        En Floristería Verde, cada arreglo floral cuenta una historia. Nuestro video muestra el amor,
+                        dedicación y arte que ponemos en cada composición. Desde la selección cuidadosa de cada flor
+                        hasta la creación de arreglos únicos, te invitamos a descubrir el mundo detrás de nuestras
+                        creaciones.
+                    </p>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-1 bg-custom-pik"></div>
+                        <span class="text-sm font-medium text-gray-600">Inspiración y Creatividad</span>
+                    </div>
+                </div>
+
+                <!-- Contenedor de Video -->
+                <div class="relative group w-[85%] md:w-[60%] mx-auto">
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                        <video controls
+                            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            <source src="./img/video_jfwX2uVg.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
+                        </video>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- HISTORIA -->
+    <!-- HISTORIA -->
 
-<section class="mb-16">
-  <div class="max-w-[1500px] mx-auto px-10">
-      <!-- Encabezado -->
-      <div class="text-center mb-12">
-          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Nuestra Historia</h2>
-          <div class="w-[280px] h-1 bg-custom-pik mx-auto"></div>
-      </div>
+    <section class="mb-12">
+        <div class="max-w-[1500px] mx-auto px-10">
+            <!-- Encabezado -->
+            <div class="text-center mb-12">
+                <h2
+                    class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                    Nuestra Historia</h2>
+                <div class="w-[280px] h-1 bg-custom-pik mx-auto"></div>
+            </div>
 
-      <!-- Contenido Principal -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <!-- Imagen -->
-          <div class="m-auto">
-              <img 
-                  src="./img/rb_2305.png"
-                  alt="Tu foto personal" 
-                  class="w-[500px] h-full object-cover"
-              >
-          </div>
+            <!-- Contenido Principal -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Imagen -->
+                <div class="m-auto">
+                    <img src="./img/rb_2305.png" alt="Tu foto personal" class="w-[500px] h-full object-cover">
+                </div>
 
-          <!-- Texto -->
-          <div class="space-y-6">
-              <!-- <h3 class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
+                <!-- Texto -->
+                <div class="space-y-6">
+                    <!-- <h3 class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">
                   Un Viaje de Pasión y Propósito
               </h3> -->
-              
-              <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
-                La historia de la marca número uno de floristería en el municipio de El Cerrito comienza con Stella Ortiz, una emprendedora visionaria que descubrió una oportunidad de negocio al vender flores en ocasiones especiales como el Día de la Madre y el Día de la Mujer. A través de esta experiencia, Stella despertó una gran pasión por el arte floral y se sumergió en el aprendizaje de arreglos florales y fúnebres. Este interés la llevó a abrir su primer local, llamado "Floristería La Gorda", aunque no obtuvo los resultados esperados.
-                Con el tiempo, y en colaboración con su hijo, Ferney Ortiz, un talentoso decorador y planificador de eventos, Stella decidió intentar de nuevo. Juntos, crearon un nombre en memoria de su padre y   amor a su nieta, crearon un nuevo nombre para la floristería: *Decorelis*. Este nombre representa el espíritu familiar que guía el negocio.
-                A través de los años, el trabajo en equipo y la dedicación hicieron de *Decorelis* una marca fuerte, reconocida a nivel municipal como la floristería principal en El Cerrito, trabajando con importantes empresas y ofreciendo servicios florales de alta calidad                
-              </p>
 
-              <!-- <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                    <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                        La historia de la marca número uno de floristería en el municipio de El Cerrito comienza con
+                        Stella Ortiz, una emprendedora visionaria que descubrió una oportunidad de negocio al vender
+                        flores en ocasiones especiales como el Día de la Madre y el Día de la Mujer. A través de esta
+                        experiencia, Stella despertó una gran pasión por el arte floral y se sumergió en el aprendizaje
+                        de arreglos florales y fúnebres. Este interés la llevó a abrir su primer local, llamado
+                        "Floristería La Gorda", aunque no obtuvo los resultados esperados.
+                        Con el tiempo, y en colaboración con su hijo, Ferney Ortiz, un talentoso decorador y
+                        planificador de eventos, Stella decidió intentar de nuevo. Juntos, crearon un nombre en memoria
+                        de su padre y amor a su nieta, crearon un nuevo nombre para la floristería: *Decorelis*. Este
+                        nombre representa el espíritu familiar que guía el negocio.
+                        A través de los años, el trabajo en equipo y la dedicación hicieron de *Decorelis* una marca
+                        fuerte, reconocida a nivel municipal como la floristería principal en El Cerrito, trabajando con
+                        importantes empresas y ofreciendo servicios florales de alta calidad
+                    </p>
+
+                    <!-- <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
                   A lo largo de los años, he tenido el privilegio de [logros o 
                   experiencias importantes]. Cada experiencia ha contribuido a 
                   formar quien soy hoy. Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae mollitia dolores deleniti quis molestias dolore voluptatem, neque harum doloribus non dolorum consectetur accusamus ex soluta ullam deserunt provident pariatur veritatis.
@@ -232,174 +864,193 @@
                   [tus valores o principios fundamentales].
               </p> -->
 
-              <!-- Estadísticas -->
-              <div class="grid grid-cols-2 gap-4 mt-8">
-                  <div class="text-center p-4 transition-all duration-300 bg-white rounded-lg border">
-                      <span class="block text-3xl font-bold text-custom-pik">10+</span>
-                      <span class="text-custom-pik-dark font-semibold">Años de Experiencia</span>
-                  </div>
-                  <div class="text-center p-4 transition-all duration-300 bg-white rounded-lg border">
-                      <span class="block text-3xl font-bold text-custom-pik">50+</span>
-                      <span class="text-custom-pik-dark font-semibold">Proyectos Completados</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-          </div>
-      </div>
-  </div>
-</section>
-
-<!-- MISION Y VISION -->
-
-<section>
-    <div class="grid grid-cols-1 md:grid-cols-2 py-8 px-10 mb-16 gap-16 md:px-16">
-      <!-- Sección Misión -->
-      <div class="py-8 px-2 md:py-6 md:px-14 bg-gray-100/70 rounded-2xl">
-        <h1 class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl">
-          <i class="fas fa-bullseye text-custom-pik text-3xl mr-2"></i>
-          Misión
-        </h1>
-        <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
-          Convertirnos en una empresa líder y con prestigio en el ámbito de eventos y detalles reconocida a nivel departamental, tomando siempre en cuenta la innovación, perfección y adaptarnos a las nuevas tendencias del mercado para estar a la vanguardia y así responder a las nuevas exigencias.
-        </p>
-      </div>
-      
-      <!-- Sección Visión -->
-      <div class="py-8 px-2 md:py-4 md:px-14 bg-gray-100/70 rounded-2xl">
-        <h1 class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl">
-          <i class="fas fa-eye text-custom-pik text-3xl mr-2"></i>
-          Visión
-        </h1>
-        <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
-          Brindar a todos nuestros clientes una experiencia única e innovadora en cada uno de nuestros productos y eventos, ofreciendo el más alto nivel de excelencia y calidad en nuestros servicios.
-        </p>
-      </div>
-    </div>
-  </section>
-
-<!-- POLITICAS DE CALIDA  -->
-
-<section class=" py-8" id="politicas_calidad">
-  <div class="max-w-6xl mx-auto px-4">
-      <!-- Encabezado -->
-      <div class="text-center mb-16">
-          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Políticas de Calidad</h2>
-          <div class="w-[280px] h-1 bg-custom-pik mx-auto mb-6"></div>
-          <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
-              Nuestro compromiso con la excelencia se refleja en cada aspecto de nuestro trabajo. 
-              Estas políticas guían nuestras acciones para asegurar la más alta calidad en todos nuestros servicios.
-          </p>
-      </div>
-
-      <!-- Compromiso Principal -->
-      <div class="bg-white rounded-lg border p-8 mb-12">
-          <h3 class="text-custom-pik-dark text-2xl font-semibold leading-none tracking-tight md:text-2xl">Compromiso con la Calidad</h3>
-          <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
-              Decorelis se compromete a mantener los más altos estándares de calidad
-              en todos sus procesos y servicios, buscando constantemente la mejora continua
-              y la satisfacción total de nuestros clientes.
-          </p>
-      </div>
-
-      <!-- Grid de Políticas -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          <!-- Política 1 -->
-          <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
-              <div class="text-blue-500 mb-4">
-                  <i class="fas fa-check-circle text-3xl text-custom-pik"></i>
-              </div>
-              <h4 class="text-xl font-semibold text-gray-800 mb-3">Mejora Continua</h4>
-              <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
-                  Nos comprometemos a evaluar y mejorar constantemente nuestros procesos
-                  para garantizar la máxima calidad en todos nuestros servicios.
-              </p>
-          </div>
-
-          <!-- Política 2 -->
-          <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
-              <div class="text-blue-500 mb-4">
-                  <i class="fas fa-users text-3xl text-custom-pik"></i>
-              </div>
-              <h4 class="text-xl font-semibold text-gray-800 mb-3">Enfoque al Cliente</h4>
-              <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
-                  Priorizamos la satisfacción del cliente, adaptando nuestros servicios
-                  a sus necesidades específicas y superando sus expectativas.
-              </p>
-          </div>
-
-          <!-- Política 3 -->
-          <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
-              <div class="text-blue-500 mb-4">
-                  <i class="fas fa-cog text-3xl text-custom-pik"></i>
-              </div>
-              <h4 class="text-xl font-semibold text-gray-800 mb-3">Procesos Estandarizados</h4>
-              <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
-                  Implementamos y mantenemos procesos estandarizados que garantizan
-                  la consistencia y calidad en todos nuestros servicios.
-              </p>
-          </div>
-      </div>
-
-      <!-- Objetivos de Calidad -->
-      <div class="bg-white rounded-lg border p-8">
-          <h3 class="text-2xl font-semibold text-gray-800 mb-6">Valores Corporativos</h3>
-          <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                  <div class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
-                      1
-                  </div>
-                  <div>
-                      <h5 class="font-semibold text-gray-800">Compromiso</h5>
-                      <p class="text-gray-600">Somos los responsables de ofrecer soluciones a nuestros clientes de manera integral y eficaz, procurando siempre el máximo nivel de satisfacción.</p>
-                  </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                  <div class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
-                      2
-                  </div>
-                  <div>
-                      <h5 class="font-semibold text-gray-800">Confianza</h5>
-                      <p class="text-gray-600">Establecer relaciones de confianza con nuestros clientes basadas en nuestros servicio/producto comprometidos y transparentes.</p>
-                  </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                  <div class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
-                      3
-                  </div>
-                  <div>
-                      <h5 class="font-semibold text-gray-800">Innovación</h5>
-                      <p class="text-gray-600">Anticiparnos al cambio y estar al día de las tendencias de nuestro sector para implementarlas en los servicios/ productos que ofrecemos.</p>
-                  </div>
-              </div>
-
-              <div class="flex items-center gap-4">
-                <div class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
-                    4
-                </div>
-                <div>
-                    <h5 class="font-semibold text-gray-800">Puntualidad</h5>
-                    <p class="text-gray-600">Entregar a tiempo y puntual las ordenes de servicio con la especificación del cliente.</p>
+                    <!-- Estadísticas -->
+                    <div class="grid grid-cols-1 gap-4 mt-8">
+                        <div class="text-center p-4 transition-all duration-300 bg-white rounded-lg border">
+                            <span class="block text-3xl font-bold text-custom-pik">5+</span>
+                            <span class="text-custom-pik-dark font-semibold">Años de Experiencia</span>
+                        </div>
+                        <!-- <div class="text-center p-4 transition-all duration-300 bg-white rounded-lg border">
+                            <span class="block text-3xl font-bold text-custom-pik">50+</span>
+                            <span class="text-custom-pik-dark font-semibold">Proyectos Completados</span>
+                        </div> -->
+                    </div>
                 </div>
             </div>
 
-            <div class="flex items-center gap-4">
-                <div class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
-                    5
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- MISION Y VISION -->
+
+    <section>
+        <div class="grid grid-cols-1 md:grid-cols-2 py-8 px-10 mb-10 gap-16 md:px-16">
+            <!-- Sección Misión -->
+            <div class="py-8 px-2 md:py-6 md:px-14 bg-gray-100/70 rounded-2xl">
+                <h1
+                    class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl">
+                    <i class="fas fa-bullseye text-custom-pik text-3xl mr-2"></i>
+                    Misión
+                </h1>
+                <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
+                    Convertirnos en una empresa líder y con prestigio en el ámbito de eventos y detalles reconocida a
+                    nivel departamental, tomando siempre en cuenta la innovación, perfección y adaptarnos a las nuevas
+                    tendencias del mercado para estar a la vanguardia y así responder a las nuevas exigencias.
+                </p>
+            </div>
+
+            <!-- Sección Visión -->
+            <div class="py-8 px-2 md:py-4 md:px-14 bg-gray-100/70 rounded-2xl">
+                <h1
+                    class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-4xl">
+                    <i class="fas fa-eye text-custom-pik text-3xl mr-2"></i>
+                    Visión
+                </h1>
+                <p class="font-light text-gray-500 text-center md:text-lg lg:text-lg">
+                    Brindar a todos nuestros clientes una experiencia única e innovadora en cada uno de nuestros
+                    productos y eventos, ofreciendo el más alto nivel de excelencia y calidad en nuestros servicios.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- POLITICAS DE CALIDA  -->
+
+    <section class=" py-8" id="politicas_calidad">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Encabezado -->
+            <div class="text-center mb-16">
+                <h2
+                    class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                    Políticas de Calidad</h2>
+                <div class="w-[280px] h-1 bg-custom-pik mx-auto mb-6"></div>
+                <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                    Nuestro compromiso con la excelencia se refleja en cada aspecto de nuestro trabajo.
+                    Estas políticas guían nuestras acciones para asegurar la más alta calidad en todos nuestros
+                    servicios.
+                </p>
+            </div>
+
+            <!-- Compromiso Principal -->
+            <div class="bg-white rounded-lg border p-8 mb-12">
+                <h3 class="text-custom-pik-dark text-2xl font-semibold leading-none tracking-tight md:text-2xl">
+                    Compromiso con la Calidad</h3>
+                <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                    Decorelis se compromete a mantener los más altos estándares de calidad
+                    en todos sus procesos y servicios, buscando constantemente la mejora continua
+                    y la satisfacción total de nuestros clientes.
+                </p>
+            </div>
+
+            <!-- Grid de Políticas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Política 1 -->
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-check-circle text-3xl text-custom-pik"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Mejora Continua</h4>
+                    <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                        Nos comprometemos a evaluar y mejorar constantemente nuestros procesos
+                        para garantizar la máxima calidad en todos nuestros servicios.
+                    </p>
                 </div>
-                <div>
-                    <h5 class="font-semibold text-gray-800">Excelencia</h5>
-                    <p class="text-gray-600">Nuestra meta esta en superar los máximos estándares de calidad en el mercado actual.</p>
+
+                <!-- Política 2 -->
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-users text-3xl text-custom-pik"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Enfoque al Cliente</h4>
+                    <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                        Priorizamos la satisfacción del cliente, adaptando nuestros servicios
+                        a sus necesidades específicas y superando sus expectativas.
+                    </p>
+                </div>
+
+                <!-- Política 3 -->
+                <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition-shadow">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-cog text-3xl text-custom-pik"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">Procesos Estandarizados</h4>
+                    <p class="text-gray-600 font-light  md:text-lg lg:text-lg">
+                        Implementamos y mantenemos procesos estandarizados que garantizan
+                        la consistencia y calidad en todos nuestros servicios.
+                    </p>
                 </div>
             </div>
-          </div>
-      </div>
 
-      <!-- Certificaciones -->
-      <!-- <div class="mt-12 text-center">
+            <!-- Objetivos de Calidad -->
+            <div class="bg-white rounded-lg border p-8">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Valores Corporativos</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
+                            1
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-800">Compromiso</h5>
+                            <p class="text-gray-600">Somos los responsables de ofrecer soluciones a nuestros clientes de
+                                manera integral y eficaz, procurando siempre el máximo nivel de satisfacción.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
+                            2
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-800">Confianza</h5>
+                            <p class="text-gray-600">Establecer relaciones de confianza con nuestros clientes basadas en
+                                nuestros servicio/producto comprometidos y transparentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
+                            3
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-800">Innovación</h5>
+                            <p class="text-gray-600">Anticiparnos al cambio y estar al día de las tendencias de nuestro
+                                sector para implementarlas en los servicios/ productos que ofrecemos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
+                            4
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-800">Puntualidad</h5>
+                            <p class="text-gray-600">Entregar a tiempo y puntual las ordenes de servicio con la
+                                especificación del cliente.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="flex-shrink-0 w-6 h-6 bg-custom-pik rounded-full flex items-center justify-center text-white">
+                            5
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-800">Excelencia</h5>
+                            <p class="text-gray-600">Nuestra meta esta en superar los máximos estándares de calidad en
+                                el mercado actual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificaciones -->
+            <!-- <div class="mt-12 text-center">
           <h3 class="text-2xl font-semibold text-gray-800 mb-6">Nuestras Certificaciones</h3>
           <div class="flex justify-center gap-8 flex-wrap">
               <div class="bg-white p-4 rounded-lg shadow">
@@ -413,522 +1064,379 @@
           </div>
       </div>
   </div> -->
-</section>
+    </section>
 
-<div class="max-w-7xl mx-auto p-6" id="productos">
-  <!-- Header con búsqueda y filtros -->
-      <div class="mb-8 space-y-6">
-        <div class="text-center mb-16">
-          <h2 class="mb-4 text-4xl text-custom-pik-dark font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">Nuestros Productos</h2>
-          <div class="w-[280px] h-1 bg-custom-pik mx-auto mb-6"></div>
-      </div>
-      
-      <!-- Filtros por categoría -->
-      <div class="flex flex-wrap gap-2">
-          <button class="px-4 py-2 rounded-full text-sm font-medium bg-custom-pik text-white transition-colors">
-            Destacados
-          </button>
-      </div>
-  </div>
+    <!-- Sección de Contacto y Ubicación -->
 
-  <!-- Grid de productos -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Producto 1 -->
-      <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
-          <!-- Imagen y etiquetas -->
-          <div class="relative">
-              <img
-                  src="./img/rosa_c.webp"
-                  alt="Producto Premium 1"
-                  class="w-full h-48 object-cover"
-              >
-              <div class="absolute top-2 left-2 flex gap-2">
-                  <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
-                      Nuevo
-                  </span>
-                  <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
-                      Destacado
-                  </span>
-              </div>
-              <button class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
-                <i class="far fa-heart text-gray-600"></i>
-              </button>
-          </div>
+    <section class="container mx-auto px-4 py-12" id="contacto">
+        <div class="max-w-6xl mx-auto bg-white rounded-lg border overflow-hidden">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Información de Contacto y Ubicación -->
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-custom-pik-dark mb-6">Visítanos</h2>
 
-          <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800" id="product-name">Rosa en Cupula de Cristal</h3>
-              <!-- Valoraciones -->
-              <div class="flex items-center gap-2 mt-2">
-                  <div class="flex items-center gap-1">
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="far fa-star text-gray-300"></i>
-                  </div>
-                  <span class="text-sm text-gray-600">(128 reviews)</span>
-              </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="text-gray-700 font-medium">Carrera 11 # 8-89 - El Cerrito Valle </span>
+                        </div>
 
-              <div class="space-y-4 mt-4">
-                  <!-- Precios -->
-                  <div class="flex items-center gap-2">
-                      <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$299.99</span>
-                      <span class="text-sm text-gray-400 line-through">$349.99</span>
-                  </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <span class="text-gray-700">(+57) 323-301-63-86</span>
+                        </div>
 
-                  <!-- Descripción -->
-                  <p class="text-gray-600 text-sm">
-                      Una descripción detallada del producto que explica sus beneficios y usos principales.
-                  </p>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span class="text-gray-700">decorelis@gmail.com</span>
+                        </div>
+                    </div>
 
-                  <!-- Características -->
-                  <ul class="space-y-2">
-                      <li class="flex items-center text-sm text-gray-700">
-                          <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                          Característica Premium 1
-                      </li>
-                      <li class="flex items-center text-sm text-gray-700">
-                          <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                          Característica 2
-                      </li>
-                      <li class="flex items-center text-sm text-gray-700">
-                          <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                          Característica 3
-                      </li>
-                  </ul>
-
-                  <!-- Colores -->
-                  <div class="space-y-2">
-                      <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
-                      <div class="flex gap-2">
-                          <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Negro</span>
-                          <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Plata</span>
-                          <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Oro</span>
-                      </div>
-                  </div>
-
-                  <!-- Stock -->
-                  <div class="flex items-center gap-2">
-                      <span class="text-sm font-medium text-green-600">
-                          En stock
-                      </span>
-                  </div>
-              </div>
-
-              <!-- Botones -->
-              <div class="flex gap-2 pt-4 mt-4">
-                  <button id="add-to-cart" class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
-                    <i class="fas fa-shopping-cart"></i>
-                      ¡Quiero Este Producto!
-                  </button>
-                  <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    <i class="fas fa-info-circle text-gray-600"></i>
-                  </button>
-              </div>
-          </div>
-      </div>
-
-      <!-- Producto 2 -->
-      <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
-          <div class="relative">
-              <img
-                  src="https://via.placeholder.com/300x200"
-                  alt="Producto Exclusivo 2"
-                  class="w-full h-48 object-cover"
-              >
-              <div class="absolute top-2 left-2 flex gap-2">
-                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
-                  Nuevo
-              </span>
-              </div>
-              <button class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
-                <i class="far fa-heart text-gray-600"></i>
-              </button>
-          </div>
-
-          <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800" id="product-name">Producto Exclusivo 2</h3>
-              <div class="flex items-center gap-2 mt-2">
-                  <div class="flex items-center gap-1">
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="fas fa-star text-yellow-400"></i>
-                            <i class="far fa-star text-gray-300"></i>
-                  </div>
-                  <span class="text-sm text-gray-600">(89 reviews)</span>
-              </div>
-
-              <div class="space-y-4 mt-4">
-                  <div class="flex items-center gap-2">
-                      <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$199.99</span>
-                      <span class="text-sm text-gray-400 line-through">$249.99</span>
-                  </div>
-
-                  <p class="text-gray-600 text-sm">
-                      Producto de alta calidad con acabados premium y garantía extendida.
-                  </p>
-
-                  <ul class="space-y-2">
-                      <li class="flex items-center text-sm text-gray-700">
-                          <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                          Característica Exclusiva 1
-                      </li>
-                      <li class="flex items-center text-sm text-gray-700">
-                          <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                          Característica 2
-                      </li>
-                  </ul>
-
-                  <div class="space-y-2">
-                      <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
-                      <div class="flex gap-2">
-                          <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Blanco</span>
-                          <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Negro</span>
-                      </div>
-                  </div>
-
-                  <div class="flex items-center gap-2">
-                      <span class="text-sm font-medium text-orange-600">
-                          ¡Solo 8 unidades disponibles!
-                      </span>
-                  </div>
-              </div>
-
-              <div class="flex gap-2 pt-4 mt-4 items-end">
-                  <button id="add-to-cart" class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
-                    <i class="fas fa-shopping-cart"></i>
-                    ¡Quiero Este Producto!
-                  </button>
-                  <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                    <i class="fas fa-info-circle text-gray-600"></i>
-                  </button>
-              </div>
-          </div>
-      </div>
-
-      <!-- Producto 3 -->
-      <div class="overflow-hidden duration-300 bg-white rounded-lg shadow hover:shadow-xl transition-shadow">
-          <div class="relative">
-              <img
-                  src="./img/rojas.jpg"
-                  alt="Producto Elite 3"
-                  class="w-full h-48 object-cover"
-              >
-              <div class="absolute top-2 left-2 flex gap-2">
-                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-custom-pik text-white">
-                  Nuevo
-              </span>
-              </div>
-              <button class="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
-                <i class="far fa-heart text-gray-600"></i>
-              </button>
-          </div>
-
-          <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800" id="product-name">Ramo de Rosas</h3>
-              <div class="flex items-center gap-2 mt-2">
-                  <div class="flex items-center gap-1">
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <i class="far fa-star text-gray-300"></i>
-                  </div>
-                  <span class="text-sm text-gray-600">(256 reviews)</span>
-              </div>
-
-              <div class="space-y-4 mt-4">
-                  <div class="flex items-center gap-2">
-                    <span class="text-2xl font-bold text-custom-pik-dark" id="product-price">$100.000</span>
-                    <span class="text-sm text-gray-400 line-through">$125.000</span>
-                </div>
-
-                <p class="text-gray-600 text-sm">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, enim, eum iure amet ipsa libero ut temporibus.
-                </p>
-
-                <ul class="space-y-2">
-                    <li class="flex items-center text-sm text-gray-700">
-                        <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                        Flores Rojas
-                    </li>
-                    <li class="flex items-center text-sm text-gray-700">
-                        <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                        Papel Kraft
-                    </li>
-                    <li class="flex items-center text-sm text-gray-700">
-                        <span class="w-2 h-2 bg-custom-pik rounded-full mr-2"></span>
-                        Carta Decorativa
-                    </li>
-                </ul>
-
-                <div class="space-y-2">
-                    <p class="text-sm font-medium text-gray-700">Colores disponibles:</p>
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Azules</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Verdes</span>
-                        <span class="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700">Rojas</span>
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold text-custom-pik-dark mb-3">Horarios</h3>
+                        <p class="text-gray-600">
+                            Lunes a Sábados: 8:00 AM - 8:00 PM<br>
+                            Domingos: 8:00 AM - 2:00 PM
+                        </p>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2">
-                    <span class="text-sm font-medium text-orange-600">
-                        ¡Solo 5 unidades disponibles!
-                    </span>
+                <!-- Mapa Interactivo -->
+                <div class="relative">
+                    <div id="map" class="w-full h-96 md:h-full z-10"></div>
+
+                    <!-- Botón de Cómo Llegar -->
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=3.68628157244706,-76.31206053548974"
+                        target="_blank"
+                        class="bg-custom-pik-dark hover:bg-custom-pik text-white font-semibold px-4 py-2 rounded-xl shadow-lg inline-flex items-center gap-2 absolute bottom-4 right-4 z-20">
+                        Cómo llegar <i class="fa-solid fa-route text-[20px]"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="flex gap-2 pt-4 mt-4">
-                <button id="add-to-cart" class="flex-1 bg-custom-pik-dark text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
-                  <i class="fas fa-shopping-cart"></i>
-                  ¡Quiero Este Producto!
-                </button>
-                <button class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
-                  <i class="fas fa-info-circle text-gray-600"></i>
-                </button>
-            </div>
         </div>
-    </div>
-</div>
-</div>
+    </section>
 
-<div class="max-w-6xl mx-auto pt-6 px-6">
-    <div class="grid grid-cols-1 items-center md:grid-cols-2 max-w-6xl mx-auto py-8 px-2 md:py-4 md:px-14 bg-white rounded-lg border gap-8">
-        <div>
-            <h1 class="text-custom-pik-dark text-center text-2xl font-extrabold leading-none tracking-tight md:text-2xl">¡Explora Todos Nuestros Productos!</h1>
-        </div>
+    <!-- Footer -->
+
+    <footer class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <!-- Logo y Nombre -->
+                <div class="flex items-center space-x-3">
+                    <img src="./img/logo-peque.png" class=" w-10" alt="" srcset="">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-custom-pik-dark" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg> -->
+                    <span class="text-2xl font-bold text-gray-800">Decorelis</span>
+                </div>
     
-        <div class="m-auto">
-            <a href="pdf/HistoriaCatálogoProductosAmoryAmistadRojoyRosa.pdf" 
-               download="catalogo.pdf" 
-               class="bg-custom-pik text-white font-semibold px-6 py-3 rounded-xl shadow-lg inline-flex items-center gap-2">
-                Descargar Catálogo <i class="fa-solid fa-file-pdf text-[20px]"></i>
-            </a>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- Sección de Contacto y Ubicación -->
-
-<section class="container mx-auto px-4 py-12" id="contacto">
-    <div class="max-w-6xl mx-auto bg-white rounded-lg border overflow-hidden">
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Información de Contacto y Ubicación -->
-            <div class="p-8">
-                <h2 class="text-3xl font-bold text-custom-pik-dark mb-6">Visítanos</h2>
-                
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span class="text-gray-700 font-medium">Carrera 11 # 8-89 - El Cerrito Valle </span>
+                <!-- Redes Sociales -->
+                <div class="flex space-x-6">
+                    <!-- Facebook -->
+                    <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 group">
+                        <i class="fab fa-brands fa-facebook text-4xl group-hover:scale-110 transform transition-transform"></i>
+                    </a>
+    
+                    <!-- Instagram -->
+                    <a href="#" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 group">
+                        <i class="fab fa-instagram text-4xl group-hover:scale-110 transform transition-transform"></i>
+                    </a>
+    
+                    <!-- WhatsApp -->
+                    <a href="#" class="text-gray-600 hover:text-green-600 transition-colors duration-300 group">
+                        <i class="fab fa-whatsapp text-4xl group-hover:scale-110 transform transition-transform"></i>
+                    </a>
+                </div>
+    
+                <!-- Información de Contacto y Logo de Cámara de Comercio -->
+                <div class="flex flex-col items-center md:items-end space-y-4">
+                    <div class="text-center md:text-right text-gray-600">
+                        <p class="mb-2">© 2024 Decorelis</p>
+                        <p>Todos los derechos reservados</p>
                     </div>
                     
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                        </svg>
-                        <span class="text-gray-700">(+57) 323-301-63-86</span>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <svg class="w-6 h-6 text-custom-pik mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                        <span class="text-gray-700">contacto@floreriaverde.com</span>
+                    <!-- Logo de Cámara de Comercio -->
+                    <div class="flex items-center space-x-2">
+                        <img 
+                            src="./img/camara-comercio-buga.png" 
+                            alt="Logo Cámara de Comercio de Colombia" 
+                            class="h-10 w-auto"
+                        />
                     </div>
                 </div>
-                
-                <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-custom-pik-dark mb-3">Horarios</h3>
-                    <p class="text-gray-600">
-                        Lunes a Viernes: 9:00 AM - 7:00 PM<br>
-                        Sábados: 10:00 AM - 5:00 PM<br>
-                        Domingos: Cerrado
-                    </p>
-                </div>
             </div>
-            
-            <!-- Mapa Interactivo -->
-            <div class="relative">
-                <div id="map" class="w-full h-96 md:h-full z-10"></div>
-                
-                <!-- Botón de Cómo Llegar -->
-                <a href="https://www.google.com/maps/dir/?api=1&destination=3.68628157244706,-76.31206053548974" 
-                   target="_blank" 
-                   class="bg-custom-pik-dark text-white font-semibold px-4 py-2 rounded-xl shadow-lg inline-flex items-center gap-2 absolute bottom-4 right-4 z-20">
-                    Cómo llegar <i class="fa-solid fa-route text-[20px]"></i>
-                </a>
+    
+            <!-- Línea de Separación -->
+            <div class="border-t border-gray-200 mt-8 pt-4 text-center">
+                <nav class="space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Política de Privacidad</a>
+                    <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Términos de Servicio</a>
+                    <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Contacto</a>
+                </nav>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<!-- Footer -->
+    <!-- Script para carrusel de imagenes -->
 
-<footer class="bg-white shadow-md">
-    <div class="container mx-auto px-4 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
-            <!-- Logo y Nombre -->
-            <div class="flex items-center space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-custom-pik-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span class="text-2xl font-bold text-gray-800">Decorelis</span>
-            </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const decorations = [
+                {
+                    src: "./img/decoracion-evento-1.jpeg",
+                    alt: "Decoración de Boda Elegante",
+                    title: "Bodas",
+                    description: "Diseños únicos para tu día especial."
+                },
+                {
+                    src: "./img/decoracion-evento-2.jpeg",
+                    alt: "Decoración de Celebración",
+                    title: "Celebraciones",
+                    description: "Transformamos tus espacios con creatividad."
+                },
+                {
+                    src: "./img/decoracion-evento-1.jpeg",
+                    alt: "Decoración Elegante",
+                    title: "Eventos Especiales",
+                    description: "Cada detalle cuenta en tus momentos importantes."
+                }
+            ];
 
-            <!-- Redes Sociales -->
-            <div class="flex space-x-6">
-                <!-- Facebook -->
-                <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors duration-300 group">
-                    <i class="fab fa-brands fa-facebook text-4xl group-hover:scale-110 transform transition-transform"></i>
-                </a>
+            const carouselImages = document.getElementById('carousel-images');
+            const slideIndicators = document.getElementById('slide-indicators');
+
+            // Crear imágenes y indicadores
+            decorations.forEach((decoration, index) => {
+                // Crear imagen
+                const imgElement = document.createElement('div');
+                imgElement.innerHTML = `
+                    <img 
+                        src="${decoration.src}" 
+                        alt="${decoration.alt}"
+                        class="absolute w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                            index === 0 ? 'opacity-100' : 'opacity-0'
+                        }"
+                        data-slide="${index}"
+                    >
+                    <div class="absolute inset-0 bg-black opacity-10"></div>
+                `;
+                carouselImages.appendChild(imgElement);
+
+                // Crear indicador
+                const indicator = document.createElement('button');
+                indicator.classList.add(
+                    'w-3', 'h-3', 'rounded-full', 'transition-all', 'duration-300',
+                    index === 0 ? 'bg-white' : 'bg-white/50'
+                );
+                indicator.setAttribute('data-slide', index);
+                indicator.addEventListener('click', () => changeSlide(index));
+                slideIndicators.appendChild(indicator);
+            });
+
+            let currentSlide = 0;
+
+            function changeSlide(newSlide) {
+                // Ocultar imagen actual
+                document.querySelector(`img[data-slide="${currentSlide}"]`).classList.remove('opacity-100');
+                document.querySelector(`img[data-slide="${currentSlide}"]`).classList.add('opacity-0');
                 
-                <!-- Instagram -->
-                <a href="#" class="text-gray-600 hover:text-pink-500 transition-colors duration-300 group">
-                    <i class="fab fa-instagram text-4xl group-hover:scale-110 transform transition-transform"></i>
-                </a>
+                // Ocultar indicador actual
+                document.querySelector(`button[data-slide="${currentSlide}"]`).classList.remove('bg-white');
+                document.querySelector(`button[data-slide="${currentSlide}"]`).classList.add('bg-white/50');
+
+                // Mostrar nueva imagen
+                document.querySelector(`img[data-slide="${newSlide}"]`).classList.remove('opacity-0');
+                document.querySelector(`img[data-slide="${newSlide}"]`).classList.add('opacity-100');
                 
-                <!-- WhatsApp -->
-                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors duration-300 group">
-                    <i class="fab fa-whatsapp text-4xl group-hover:scale-110 transform transition-transform"></i>
-                </a>
-            </div>
+                // Mostrar nuevo indicador
+                document.querySelector(`button[data-slide="${newSlide}"]`).classList.remove('bg-white/50');
+                document.querySelector(`button[data-slide="${newSlide}"]`).classList.add('bg-white');
 
-            <!-- Información de Contacto -->
-            <div class="text-center md:text-right text-gray-600">
-                <p class="mb-2">© 2024 Decorelis</p>
-                <p>Todos los derechos reservados</p>
-            </div>
-        </div>
+                currentSlide = newSlide;
+            }
 
-        <!-- Línea de Separación -->
-        <div class="border-t border-gray-200 mt-8 pt-4 text-center">
-            <nav class="space-x-4">
-                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Política de Privacidad</a>
-                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Términos de Servicio</a>
-                <a href="#" class="text-gray-600 hover:text-green-600 transition-colors">Contacto</a>
-            </nav>
-        </div>
-    </div>
-</footer>
-
-<!-- Script para personalizar Font Awesome -->
-<script>
-    // Opcional: Personalización adicional de iconos
-    document.addEventListener('DOMContentLoaded', function() {
-        const socialIcons = document.querySelectorAll('.fab');
-        socialIcons.forEach(icon => {
-            icon.style.transition = 'transform 0.3s ease, color 0.3s ease';
+            // Cambio automático de diapositivas
+            setInterval(() => {
+                const nextSlide = (currentSlide + 1) % decorations.length;
+                changeSlide(nextSlide);
+            }, 5000);
         });
-    });
-</script>
+    </script>
 
-<!-- Script para mapa Leaflet (alternativa gratuita a Google Maps) -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    // Inicializar mapa
-    var map = L.map('map').setView([3.68628157244706, -76.31206053548974], 15);
-    
-    // Añadir capa de mapa
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-    
-    // Añadir marcador
-    L.marker([3.68628157244706, -76.31206053548974]).addTo(map)
-        .bindPopup('Decorelis - Floristeria y Decoracion de Eventos')
-        .openPopup();
-</script>
+    <!-- Script para el modal de la imagen -->
 
-<script>
-  // Escuchar el evento click del botón
-  document.getElementById("add-to-cart").addEventListener("click", function () {
-      const productName = document.getElementById("product-name").innerText;
-      const productPrice = document.getElementById("product-price").innerText;
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Obtener elementos
+            const modal = document.getElementById("productModal");
+            const modalImage = document.getElementById("modalImage");
+            const closeModal = document.getElementById("closeModal");
 
-      // Número de WhatsApp y mensaje predefinido
-      const whatsappNumber = "573233016386"; // Reemplazar con tu número
-      const message = `Hola, estoy interesado en el producto "${productName}" que tiene un precio de ${productPrice}.`;
+            // Agregar evento a las imágenes
+            const productImages = document.querySelectorAll(".product-image");
+            productImages.forEach((image) => {
+                image.addEventListener("click", () => {
+                    const src = image.getAttribute("src");
+                    modalImage.setAttribute("src", src); // Cambiar la imagen en el modal
+                    modal.classList.remove("hidden"); // Mostrar el modal
+                });
+            });
 
-      // Redirigir al enlace de WhatsApp
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-      window.open(whatsappURL, "_blank");
-  });
-</script>
+            // Cerrar el modal
+            closeModal.addEventListener("click", () => {
+                modal.classList.add("hidden");
+            });
 
-<!-- Script para inicializar los iconos de Lucide -->
-<script>
-// Inicializar los iconos de Lucide
-lucide.createIcons();
-
-// Funcionalidad para los botones de favoritos
-document.querySelectorAll('[data-lucide="heart"]').forEach(heart => {
-    let isFavorite = false;
-    heart.parentElement.addEventListener('click', () => {
-        isFavorite = !isFavorite;
-        if (isFavorite) {
-            heart.classList.add('fill-red-500', 'text-red-500');
-        } else {
-            heart.classList.remove('fill-red-500', 'text-red-500');
-            heart.classList.add('text-gray-600');
-        }
-    });
-});
-
-// Funcionalidad para la barra de búsqueda
-const searchInput = document.querySelector('input[type="text"]');
-const productCards = document.querySelectorAll('.grid > div');
-
-searchInput.addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    
-    productCards.forEach(card => {
-        const productName = card.querySelector('h3').textContent.toLowerCase();
-        const productDescription = card.querySelector('p').textContent.toLowerCase();
-        
-        if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-});
-
-// Funcionalidad para los botones de categoría
-const categoryButtons = document.querySelectorAll('.flex.flex-wrap.gap-2 button');
-
-categoryButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remover clase activa de todos los botones
-        categoryButtons.forEach(btn => {
-            btn.classList.remove('bg-indigo-600', 'text-white');
-            btn.classList.add('bg-white', 'text-gray-600', 'hover:bg-indigo-50');
+            // Cerrar modal al hacer clic fuera del contenido
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.classList.add("hidden");
+                }
+            });
         });
-        
-        // Agregar clase activa al botón clickeado
-        button.classList.remove('bg-white', 'text-gray-600', 'hover:bg-indigo-50');
-        button.classList.add('bg-indigo-600', 'text-white');
-    });
-});
-</script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const toggleButton = document.querySelector("[data-collapse-toggle]");
-      const menu = document.getElementById("navbar-default");
-  
-      toggleButton.addEventListener("click", function() {
-        menu.classList.toggle("hidden");
-      });
-    });
-  </script>
-  
+    </script>
+
+    <!-- Script para personalizar Font Awesome -->
+
+    <script>
+        // Opcional: Personalización adicional de iconos
+        document.addEventListener('DOMContentLoaded', function () {
+            const socialIcons = document.querySelectorAll('.fab');
+            socialIcons.forEach(icon => {
+                icon.style.transition = 'transform 0.3s ease, color 0.3s ease';
+            });
+        });
+    </script>
+
+    <!-- Script para mapa Leaflet (alternativa gratuita a Google Maps) -->
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Inicializar mapa
+        var map = L.map('map').setView([3.68628157244706, -76.31206053548974], 15);
+
+        // Añadir capa de mapa
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Añadir marcador
+        L.marker([3.68628157244706, -76.31206053548974]).addTo(map)
+            .bindPopup('Decorelis - Floristeria y Decoracion de Eventos')
+            .openPopup();
+    </script>
+
+    <!-- Script para enviar mensaje de WhatsApp con el producto seleccionado -->
+
+    <script>
+        // Escuchar el evento click del botón
+        document.getElementById("add-to-cart").addEventListener("click", function () {
+            const productName = document.getElementById("product-name").innerText;
+            const productPrice = document.getElementById("product-price").innerText;
+
+            // Número de WhatsApp y mensaje predefinido
+            const whatsappNumber = "573233016386"; // Reemplazar con tu número
+            const message = `Hola, estoy interesado en el producto "${productName}" que tiene un precio de ${productPrice}.`;
+
+            // Redirigir al enlace de WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, "_blank");
+        });
+    </script>
+
+    <!-- Script para inicializar los iconos de Lucide -->
+
+    <script>
+        // Inicializar los iconos de Lucide
+        lucide.createIcons();
+
+        // Funcionalidad para los botones de favoritos
+        document.querySelectorAll('[data-lucide="heart"]').forEach(heart => {
+            let isFavorite = false;
+            heart.parentElement.addEventListener('click', () => {
+                isFavorite = !isFavorite;
+                if (isFavorite) {
+                    heart.classList.add('fill-red-500', 'text-red-500');
+                } else {
+                    heart.classList.remove('fill-red-500', 'text-red-500');
+                    heart.classList.add('text-gray-600');
+                }
+            });
+        });
+
+        // Funcionalidad para la barra de búsqueda
+        const searchInput = document.querySelector('input[type="text"]');
+        const productCards = document.querySelectorAll('.grid > div');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const productName = card.querySelector('h3').textContent.toLowerCase();
+                const productDescription = card.querySelector('p').textContent.toLowerCase();
+
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Funcionalidad para los botones de categoría
+        const categoryButtons = document.querySelectorAll('.flex.flex-wrap.gap-2 button');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remover clase activa de todos los botones
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-600', 'hover:bg-indigo-50');
+                });
+
+                // Agregar clase activa al botón clickeado
+                button.classList.remove('bg-white', 'text-gray-600', 'hover:bg-indigo-50');
+                button.classList.add('bg-indigo-600', 'text-white');
+            });
+        });
+    </script>
+
+    <!-- Script para el menú de navegación responsivo -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.querySelector("[data-collapse-toggle]");
+            const menu = document.getElementById("navbar-default");
+
+            toggleButton.addEventListener("click", function () {
+                menu.classList.toggle("hidden");
+            });
+        });
+    </script>
+
 </body>
+
 </html>
